@@ -25,8 +25,7 @@ class Stack {
     }
     let deleteItem = this.items[this.count - 1]
     this.count -= 1
-    return deleteItem
-     
+    return deleteItem 
   }
 
   peek() { 
