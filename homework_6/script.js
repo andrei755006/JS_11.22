@@ -37,7 +37,7 @@ class Calculator {
   }
 
   compute() {
-    let computation
+    let computation = 0
     const prev = parseFloat(this.previousOperand)
     const current = parseFloat(this.currentOperand)
     if (isNaN(prev) || isNaN(current)) {
@@ -60,7 +60,16 @@ class Calculator {
         return
     }
 
-    this.currentOperand = computation
+    let int_part = Math.trunc(computation)
+    let float_part = Number((computation  - int_part))
+    let float_part_to_str = float_part.toString()
+
+    if(float_part && float_part_to_str.length > 8) {
+      this.currentOperand = computation.toFixed(8)
+    } else {
+      this.currentOperand = computation
+    }
+
     this.operation = undefined
     this.previousOperand = ''
   }
